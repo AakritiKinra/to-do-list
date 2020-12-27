@@ -14,13 +14,17 @@ class Todo(db.Model):
     def __repr__(self):
         return '<Task %r>' % self.id
 
-@app.route("/registrazione")
-def render_registrazione() -> "html":
-    return render_template("registrazione.html")
+@app.route('/registrazione', methods=['POST']) 
+def registrazione(): 
+    if request.method == 'POST':
+       username= request.form.username.data
+       return render_template('registration.html', username=username)
+   else :
+       return render_template('registration.html')
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
-    if request.method == 'POST' or request.method== 'GET':
+    if request.method == 'POST':
         task_content = request.form['content']
         new_task = Todo(content=task_content)
 
