@@ -20,7 +20,7 @@ def render_registrazione() -> "html":
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
-    if request.method == 'POST':
+    if request.method == 'POST' or request.method== 'GET':
         task_content = request.form['content']
         new_task = Todo(content=task_content)
 
