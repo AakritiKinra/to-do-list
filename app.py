@@ -19,7 +19,7 @@ def registrazione():
     if request.method == 'POST':
        username= request.form.username.data
        return render_template('registration.html', username=username)
-   else :
+    else :
        return render_template('registration.html')
 
 @app.route('/', methods=['POST', 'GET'])
