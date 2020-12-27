@@ -14,14 +14,6 @@ class Todo(db.Model):
     def __repr__(self):
         return '<Task %r>' % self.id
 
-@app.route('/registrazione', methods=['POST','GET']) 
-def registrazione(): 
-    if request.method == 'POST':
-       username= request.form.username.data
-       return render_template('registration.html', username=username)
-    else :
-       return render_template('registration.html')
-
 @app.route('/', methods=['POST', 'GET'])
 def index():
     if request.method == 'POST':
